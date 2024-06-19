@@ -1,4 +1,5 @@
 import FloatMessage from "./components/FloatMessage.js";
+import ThreeCanvas from "./components/ThreeCanvas.js";
 
 document.getElementById("btn__load_model").addEventListener("click", () => {
     const input = document.createElement("input");
@@ -13,11 +14,16 @@ document.getElementById("btn__load_model").addEventListener("click", () => {
                 const fileType = fileName.split(".").pop();
 
                 if (fileType === "glb" || fileType === "gltf") {
-                    console.log("File:", fileName);
+                    const reader = new FileReader();
+                    reader.readAsArrayBuffer(file);
+                    reader.addEventListener("load", (event) => {
+                        const arrayBuffer = event.target.result;
+                        ThreeCanvas.create(arrayBuffer);
+                    });
                     FloatMessage.success("Loaded file: " + fileName);
+                    ThreeCanvas.create(file);
                 } else {
                     FloatMessage.warning("Invalid file type: " + fileName);
-                    console.error("Invalid file type:", fileName);
                 }
             }
         }

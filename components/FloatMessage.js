@@ -12,9 +12,12 @@ export default class FloatMessage {
     }
 
     static __print(cssClass, message) {
-        const notificationContainer = document.getElementById("frame__notification");
+        const notificationContainer = document.getElementById(
+            "frame__notification"
+        );
         const notificationElement = document.createElement("div");
         notificationElement.classList.add("notification");
+        notificationElement.classList.add(cssClass);
 
         const messageElement = document.createElement("p");
         messageElement.classList.add("notification-message");
