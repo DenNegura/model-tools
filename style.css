@@ -1,0 +1,28 @@
+#frame__notification {
+    position: fixed;
+    top: 20px;
+    right: 20px; /* Adjust right position as needed */
+    z-index: 1000; /* Ensure notifications are above other elements */
+}
+
+.notification {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px; /* Spacing between notifications */
+}
+
+.notification-message {
+    font-size: 14px;
+}
+
+.notification-button {
+    float: right; /* Place button on the right */
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
